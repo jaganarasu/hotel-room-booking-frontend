@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ,
-  "proxy": "https://hotel-booking-backend-api.vercel.app/api""# hotel-room-booking-frontend" 
+  "proxy": " op"# hotel-room-booking-frontend" 
