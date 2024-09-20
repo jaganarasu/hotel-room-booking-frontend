@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+## This Project MERN - Hotel Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Frontend url
+https://mern-hotel-app-frontend.netlify.app/
+
+## Backend Scripts
+https://mern-hotel-app-backend.onrender.com/
+
+## Screenshot
+fronend look
+https://mern-hotel-app-frontend.netlify.app/
+
+![alt text](./src/screenshot/1-1.png)
+
+https://mern-hotel-app-frontend.netlify.app/hotels
+![hotel list](./src/screenshot/1-4.png)
+
+https://mern-hotel-app-frontend.netlify.app/login
+![login](./src/screenshot/1-5.png)
+
+https://mern-hotel-app-frontend.netlify.app/register
+![register](./src/screenshot/1-6.png)
+
+https://mern-hotel-app-frontend.netlify.app/hotels/66ec963dc44f04a7e0ee82aa
+![single hotel list](./src/screenshot/1-3.png)
+
+
 
 ## Available Scripts
 
@@ -9,7 +33,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:5000](http://localhost:5000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -30,45 +54,3 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-,
-  "proxy": " op"# hotel-room-booking-frontend" 
