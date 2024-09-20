@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import "./login.css";
+// import "./login.css";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
    
-    <div className="container-fluid ">
+    <div className="container-fluid">
             <div className="col-lg-12 mb-4">
             <Navbar />
           
