@@ -18,17 +18,10 @@ const List = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, reFetch } = useFetch(
-    `https://hotel-booking-backend-vi05.onrender.comapi/hotels?city=${destination}&min=${
+    `https://mern-hotel-app-backend.onrender.com/api/hotels?city=${destination}&min=${
       min || 0
     }&max=${max || 999}`
   );
-
-  // const { data, loading, reFetch } = useFetch(
-  //   `http://localhost:3000/api/hotels?city=${destination}&min=${
-  //     min || 0
-  //   }&max=${max || 999}`
-  // );
-  
 
   const handleClick = () => {
     reFetch();
@@ -38,91 +31,110 @@ const List = () => {
     <div>
       <Navbar />
       <Header type="list" />
-      <div className="listContainer">
-        <div className="listWrapper">
-          <div className="listSearch">
-            <h1 className="lsTitle">Search</h1>
-            <div className="lsItem">
-              <label>Destination</label>
-              <input placeholder={destination} type="text" />
-            </div>
-            <div className="lsItem">
-              <label>Check-in Date</label>
-              <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                dates[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
-              {openDate && (
-                <DateRange
-                  onChange={(item) => setDates([item.selection])}
-                  minDate={new Date()}
-                  ranges={dates}
+      <div className="container mt-4">
+        <div className="row">
+          <div className="col-lg-3 mb-4">
+            <div className="p-3 border rounded bg-light">
+              <h1 className="h4 mb-3">Search</h1>
+
+              <div className="mb-3">
+                <label className="form-label">Destination</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={destination}
                 />
-              )}
-            </div>
-            <div className="lsItem">
-              <label>Options</label>
-              <div className="lsOptions">
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">
-                    Min price <small>per night</small>
-                  </span>
-                  <input
-                    type="number"
-                    onChange={(e) => setMin(e.target.value)}
-                    className="lsOptionInput"
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Check-in Date</label>
+                <span
+                  className="d-block p-2 border rounded bg-white cursor-pointer"
+                  onClick={() => setOpenDate(!openDate)}
+                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  dates[0].endDate,
+                  "MM/dd/yyyy"
+                )}`}</span>
+                {openDate && (
+                  <DateRange
+                    onChange={(item) => setDates([item.selection])}
+                    minDate={new Date()}
+                    ranges={dates}
+                    className="mt-2"
                   />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">
-                    Max price <small>per night</small>
-                  </span>
-                  <input
-                    type="number"
-                    onChange={(e) => setMax(e.target.value)}
-                    className="lsOptionInput"
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Adult</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.adult}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Children</span>
-                  <input
-                    type="number"
-                    min={0}
-                    className="lsOptionInput"
-                    placeholder={options.children}
-                  />
-                </div>
-                <div className="lsOptionItem">
-                  <span className="lsOptionText">Room</span>
-                  <input
-                    type="number"
-                    min={1}
-                    className="lsOptionInput"
-                    placeholder={options.room}
-                  />
+                )}
+              </div>
+
+              <div className="mb-3">
+                <label className="form-label">Options</label>
+                <div className="border rounded p-3">
+                  <div className="mb-3">
+                    <label className="form-label">Min price <small>per night</small></label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      onChange={(e) => setMin(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Max price <small>per night</small></label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      onChange={(e) => setMax(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Adults</label>
+                    <input
+                      type="number"
+                      min={1}
+                      className="form-control"
+                      placeholder={options.adult}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Children</label>
+                    <input
+                      type="number"
+                      min={0}
+                      className="form-control"
+                      placeholder={options.children}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Room</label>
+                    <input
+                      type="number"
+                      min={1}
+                      className="form-control"
+                      placeholder={options.room}
+                    />
+                  </div>
                 </div>
               </div>
+
+              <button className="btn btn-primary w-100" onClick={handleClick}>
+                Search
+              </button>
             </div>
-            <button onClick={handleClick}>Search</button>
           </div>
-          <div className="listResult">
+
+          <div className="col-lg-9">
             {loading ? (
-              "loading"
+              <div className="text-center">Loading...</div>
             ) : (
-              <>
+              <div className="row">
                 {data.map((item) => (
-                  <SearchItem item={item} key={item._id} />
+                  <div className="col-lg-9 mb-4" key={item._id}>
+                    <SearchItem item={item} />
+                  </div>
                 ))}
-              </>
+              </div>
             )}
           </div>
         </div>

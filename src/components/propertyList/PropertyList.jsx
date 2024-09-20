@@ -3,8 +3,8 @@ import "./propertyList.css";
 
 const PropertyList = () => {
   const { data, loading } = useFetch(
-     "https://hotel-booking-backend-vi05.onrender.comapi/hotels/countByType"
-  //  "http://localhost:3000/api/hotels/countByType"    
+    "https://mern-hotel-app-backend.onrender.com/api/hotels/countByType"
+    // "http://localhost:5000/api/hotels/countByType"
   );
 
   const images = [
@@ -14,25 +14,34 @@ const PropertyList = () => {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQowHoGGaPWUT1QyhBgX6fBCqnpnrccsVGv9Q&usqp=CAU",
     "https://www.pixelstalk.net/wp-content/uploads/2016/08/Log-Cabin-HD-Image.jpg",
   ];
+
   return (
-    <div className="pList">
+    <div className="container my-2">
       {loading ? (
-        "loading"
+        <div className="text-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
       ) : (
-        <>
+        <div className=" row justify-content-center">
+             <h2 className="text-center mb-4">Browse by property type
+             </h2>
           {data &&
             images.map((img, i) => (
-              <div className="pListItem" key={i}>
-                <img src={img} alt="" className="pListImg" />
-                <div className="pListTitles">
-                  <h1>{data[i]?.type}</h1>
-                  <h2>
-                    {data[i]?.count} {data[i]?.type}
-                  </h2>
+              <div className="col-lg-2 col-md-6 mb-4" key={i}>
+                <div className="card pListItem">
+                  <img src={img} alt="" className="card-img-top pListImg" />
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{data[i]?.type}</h5>
+                    <p className="card-text">
+                      {data[i]?.count} {data[i]?.type}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
-        </>
+        </div>
       )}
     </div>
   );

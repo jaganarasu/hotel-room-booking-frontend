@@ -1,4 +1,6 @@
 import axios from "axios";
+import Navbar from "../../components/navbar/Navbar";
+
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -23,9 +25,7 @@ const Login = () => {
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post(
-         "https://hotel-booking-backend-vi05.onrender.comapi/auth/login",
-      //  "http://localhost:3000/api/auth/login",
-        
+         "https://mern-hotel-app-backend.onrender.com/api/auth/login",
         credentials
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
@@ -36,35 +36,55 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <div className="lContainer">
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="password"
-          placeholder="password"
-          id="password"
-          onChange={handleChange}
-          className="lInput"
-        />
-        <button disabled={loading} onClick={handleClick} className="lButton">
-          Login
-        </button>
-        {error && <span>{error.message}</span>}
-        <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Demo credentials</p>
-        <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Username: demo</p>
-          <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Email: demo@example.com</p>
-          <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Password: demo123</p>
-          <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Admin: admin</p>
-          <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Email: admin@example.com</p>
-          <p style={ {margin: "0 0 0 20px", textAlign: "left",width: "100%",fontFamily:"'Roboto','Helvetica','Arial',sans-serif",fontSize:"14px"} }>Password: admin123</p>
-
-      </div>
+   
+    <div className="container-fluid ">
+            <div className="col-lg-12 mb-4">
+            <Navbar />
+          
+            </div>
+      
+      <div className="lContainer row justify-content-center mt-4 ">
+      <div className="row justify-content-center mt-4 ">
+        <div className="col-lg-8">
+          <h2 className="text-center mb-4">Login</h2>
+          <form>
+            <div className="form-group mb-3">
+              <input
+                type="text"
+                placeholder="Username"
+                id="username"
+                onChange={handleChange}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group mb-3">
+              <input
+                type="password"
+                placeholder="Password"
+                id="password"
+                onChange={handleChange}
+                className="form-control"
+              />
+            </div>
+            <button
+              disabled={loading}
+              onClick={handleClick}
+              className="btn btn-primary w-100"
+            >
+              Login
+            </button>
+          </form>
+          {error && <div className="alert alert-danger mt-3">{error.message}</div>}
+          
+          {/* Demo Credentials */}
+          <div className="mt-4">
+            <p className="text-muted">Demo credentials</p>
+            <p className="text-muted">Username: jaga</p>
+            <p className="text-muted">Email: abce@gmail.com</p>
+            <p className="text-muted">Password: userpassword123</p>
+          </div>
+        </div>
+      </div></div>
     </div>
   );
 };

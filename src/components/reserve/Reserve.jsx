@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data } = useFetch(
-    //  `https://hotel-booking-backend-api.vercel.app/api/hotels/room/${hotelId}`
-    ` http://localhost:3000/api/hotels/room/${hotelId}`   
+     `https://hotel-booking-backend-api.vercel.app/api/rooms/${hotelId}`
+    // ` http://localhost:5000/api/rooms/${hotelId}`   
     );
   const { dates } = useContext(SearchContext);
 
@@ -58,8 +58,8 @@ const Reserve = ({ setOpen, hotelId }) => {
       await Promise.all(
         selectedRooms.map((roomId) => {
           const res = axios.put(
-             `https://hotel-booking-backend-vi05.onrender.comapi/rooms/availability/${roomId}`,
-          //  `http://localhost:3000/api/rooms/availability/${roomId}`,  
+            //  `https://mern-hotel-app-backend.onrender.com/api/rooms/availability/${roomId}`,
+           `http://localhost:5000/api/rooms/availability/${roomId}`,  
             {
               dates: alldates,
             }

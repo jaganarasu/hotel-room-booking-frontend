@@ -1,10 +1,15 @@
 .navbar {
   height: 50px;
-  background-color: #7c7e7e;
-  display: flex;
-  justify-content: center;
+ 
+  color: white !important;
+ 
 }
-
+.navbar-text {
+  color: white !important;
+}
+.navbar-brand {
+  color: white !important;
+}
 .navContainer {
   width: 100%;
   max-width: 1024px;

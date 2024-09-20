@@ -25,8 +25,8 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading } = useFetch(
-     `https://hotel-booking-backend-vi05.onrender.comapi/hotels/find/${id}`
-  //  `http://localhost:3000/api/hotels/find/${id}`
+     `https://mern-hotel-app-backend.onrender.com/api/hotels/find/${id}`
+  //  `http://localhost:5000/api/hotels/find/${id}`
     
   );
   const { user } = useContext(AuthContext);
@@ -102,7 +102,7 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+            <button className="bookNow" onClick={handleClick} >Reserve or Book Now!</button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
